@@ -1,5 +1,5 @@
 #!/bin/bash
-#shadowsocks-libev obfs install by SL
+#shadowsocks-libev obfs install by VPNJKLO
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -23,7 +23,7 @@ echo -e "${NC}${LIGHT}Fuck You!!"
 exit 0
 fi
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/shadowsocks"
+akbarvpn="raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/shadowsocks"
 
 source /etc/os-release
 OS=$ID
