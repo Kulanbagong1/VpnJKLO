@@ -45,7 +45,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/ohpserver -port 8181 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:22
+ExecStart=/usr/local/bin/ohpserver -port 8484 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:22
 Restart=on-failure
 LimitNOFILE=infinity
 
@@ -66,7 +66,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/ohpserver -port 8282 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:109
+ExecStart=/usr/local/bin/ohpserver -port 8585 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:109
 Restart=on-failure
 LimitNOFILE=infinity
 
@@ -87,7 +87,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/ohpserver -port 8383 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:1194
+ExecStart=/usr/local/bin/ohpserver -port 8686 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:1194
 Restart=on-failure
 LimitNOFILE=infinity
 
@@ -106,21 +106,21 @@ systemctl restart openvpn-ohp
 printf 'INSTALLATION COMPLETED !\n'
 sleep 0.5
 printf 'CHECKING LISTENING PORT\n'
-if [ -n "$(ss -tupln | grep ohpserver | grep -w 8181)" ]
+if [ -n "$(ss -tupln | grep ohpserver | grep -w 8484)" ]
 then
 	echo 'SSH OHP Redirection Running'
 else
 	echo 'SSH OHP Redirection Not Found, please check manually'
 fi
 sleep 0.5
-if [ -n "$(ss -tupln | grep ohpserver | grep -w 8282)" ]
+if [ -n "$(ss -tupln | grep ohpserver | grep -w 8585)" ]
 then
 	echo 'Dropbear OHP Redirection Running'
 else
 	echo 'Dropbear OHP Redirection Not Found, please check manually'
 fi
 sleep 0.5
-if [ -n "$(ss -tupln | grep ohpserver | grep -w 8383)" ]
+if [ -n "$(ss -tupln | grep ohpserver | grep -w 8686)" ]
 then
 	echo 'OpenVPN OHP Redirection Running'
 else
