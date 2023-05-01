@@ -41,8 +41,8 @@ chmod +x /usr/local/bin/xray
 # Make Folder XRay
 mkdir -p /var/log/xray/
 #
-wget -q -O /usr/local/bin/geosite.dat "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/geosite.dat"
-wget -q -O /usr/local/bin/geoip.dat "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/geoip.dat"
+wget -q -O /usr/local/bin/geosite.dat "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/geosite.dat"
+wget -q -O /usr/local/bin/geoip.dat "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/geoip.dat"
 
 #
 cat > /etc/xray/vmessgrpc.json << END
@@ -54,7 +54,7 @@ cat > /etc/xray/vmessgrpc.json << END
     },
     "inbounds": [
         {
-            "port": 3380,
+            "port": 443,
             "protocol": "vmess",
             "settings": {
                 "clients": [
@@ -167,7 +167,7 @@ cat > /etc/xray/vlessgrpc.json << END
     },
     "inbounds": [
         {
-            "port": 4480,
+            "port": 443,
             "protocol": "vless",
             "settings": {
                 "clients": [
@@ -304,10 +304,10 @@ RestartPreventExitStatus=23
 WantedBy=multi-user.target
 EOF
 
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 3380 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 3380 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 4480 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 4480 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -319,10 +319,10 @@ systemctl enable vless-grpc
 systemctl restart vless-grpc
 #
 cd /usr/bin
-wget -O addgrpc "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/addgrpc.sh"
-wget -O delgrpc "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/delgrpc.sh"
-wget -O renewgrpc "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/renewgrpc.sh"
-wget -O cekgrpc "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/cekgrpc.sh"
+wget -O addgrpc "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/addgrpc.sh"
+wget -O delgrpc "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/delgrpc.sh"
+wget -O renewgrpc "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/renewgrpc.sh"
+wget -O cekgrpc "https://raw.githubusercontent.com/Kulanbagong1/VpnJKLO/main/grpc/cekgrpc.sh"
 
 chmod +x addgrpc
 chmod +x delgrpc
