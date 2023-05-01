@@ -51,12 +51,12 @@ blastport3=$(grep "port_gosth2" /etc/shadowsocks-libev/akun.conf | tail -n1 | aw
 
 
 if [[ $lastport1 == '' ]]; then
-tls=443
+tls=1443
 else
 tls="$((lastport1+1))"
 fi
 if [[ $lastport2 == '' ]]; then
-http=80
+http=8139
 else
 http="$((lastport2+1))"
 fi
@@ -86,12 +86,12 @@ else
 xraybws="$((lastport7+1))"
 fi
 if [[ $lastport8 == '' ]]; then
-xrayawss=921
+xrayawss=443
 else
 xrayawss="$((lastport8+1))"
 fi
 if [[ $lastport9 == '' ]]; then
-xraygrpctls=1623
+xraygrpctls=433
 else
 xraygrpctls="$((lastport9+1))"
 fi
@@ -106,12 +106,12 @@ else
 xrayquic="$((alastport2+1))"
 fi
 if [[ $alastport3 == '' ]]; then
-gosttls=4751
+gosttls=433
 else
 gosttls="$((alastport3+1))"
 fi
 if [[ $alastport4 == '' ]]; then
-gostmtls=5753
+gostmtls=433
 else
 gostmtls="$((alastport4+1))"
 fi
