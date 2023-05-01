@@ -468,63 +468,7 @@ cat > /etc/shadowsocks-libev/$user-gostmws.json<<END
     "timeout":60,
     "method":"aes-256-cfb",
     "nameserver":"8.8.8.8",
-    "mode":"tcp_and_udp",
-    "plugin":"gost-plugin",
-    "plugin_opts":"server;mux=1;mode=mws;path=/gost"
-}
-END
-#gostmwss
-cat > /etc/shadowsocks-libev/$user-gostmwss.json<<END
-{
-    "server":"0.0.0.0",
-    "server_port":$gostamwss,
-    "password":"$user",
-    "timeout":60,
-    "method":"aes-256-cfb",
-    "nameserver":"8.8.8.8",
-    "mode":"tcp_and_udp",
-    "plugin":"gost-plugin",
-    "plugin_opts":"server;mux=1;mode=mwss;host=$domain;cert=$path_crt;key=$path_key;path=/gost"
-}
-END
-#gostquic
-cat > /etc/shadowsocks-libev/$user-gostquic.json<<END
-{
-    "server":"0.0.0.0",
-    "server_port":$gostquic,
-    "password":"$user",
-    "timeout":60,
-    "method":"aes-256-cfb",
-    "nameserver":"8.8.8.8",
-    "mode":"tcp_only",
-    "plugin":"gost-plugin",
-    "plugin_opts":"server;mode=quic;cert=$path_crt;key=$path_key"
-}
-END
-#gosth2
-cat > /etc/shadowsocks-libev/$user-gosth2.json<<END
-{
-    "server":"0.0.0.0",
-    "server_port":$gosth2,
-    "password":"$user",
-    "timeout":60,
-    "method":"aes-256-cfb",
-    "nameserver":"8.8.8.8",
-    "mode":"tcp_and_udp",
-    "plugin":"gost-plugin",
-    "plugin_opts":"server;mode=h2;path=/gost;cert=$path_crt;key=$path_key"
-}
-END
 
-
-chmod +x /etc/shadowsocks-libev/$user-tls.json
-chmod +x /etc/shadowsocks-libev/$user-http.json
-chmod +x /etc/shadowsocks-libev/$user-v2rayws.json
-chmod +x /etc/shadowsocks-libev/$user-v2raywss.json
-chmod +x /etc/shadowsocks-libev/$user-v2rayquic.json
-chmod +x /etc/shadowsocks-libev/$user-v2raygrpc.json
-chmod +x /etc/shadowsocks-libev/$user-xrayws.json
-chmod +x /etc/shadowsocks-libev/$user-xraywss.json
 chmod +x /etc/shadowsocks-libev/$user-xrayquic.json
 chmod +x /etc/shadowsocks-libev/$user-xraygrpctls.json
 chmod +x /etc/shadowsocks-libev/$user-xraygrpchttp.json
